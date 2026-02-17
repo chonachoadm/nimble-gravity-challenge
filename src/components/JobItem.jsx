@@ -22,7 +22,7 @@ function JobItem({ job, candidate }) {
                     body: JSON.stringify({
                         uuid: candidate.uuid,
                         jobId: job.id,
-                        candidateId: candidate.candidateId,
+                        candidateId: candidate.candidate.id,
                         repoUrl: repoUrl
                     })
                 }
@@ -57,7 +57,7 @@ function JobItem({ job, candidate }) {
                 onChange={(event) => setRepoUrl(event.target.value)} />
             <button type="submit" onClick={handleSubmit}>{loading ? "Enviando..." : "Enviar"}</button>
             {success && <p className="success">Postulación enviada!</p>}
-            {error && <p className="error"><strong>Error al enviar la postulación:</strong> {error} </p>}
+            {error && <p className="error">{error}</p>}
         </li>
     )
 }
