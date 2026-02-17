@@ -22,7 +22,7 @@ function JobItem({ job, candidate }) {
                     body: JSON.stringify({
                         uuid: candidate.uuid,
                         jobId: job.id,
-                        candidateId: candidate.candidate.id,
+                        candidateId: candidate.id,
                         repoUrl: repoUrl
                     })
                 }
