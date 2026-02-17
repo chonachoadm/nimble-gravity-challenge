@@ -11,6 +11,7 @@ function JobItem({ job, candidate }) {
     const handleSubmit = async () => {
         setLoading(true)
         setError(null)
+
         try {
             const response = await fetch(
                 `${BASE_URL}/api/candidate/apply-to-job`,
@@ -22,7 +23,8 @@ function JobItem({ job, candidate }) {
                     body: JSON.stringify({
                         uuid: candidate.uuid,
                         jobId: job.id,
-                        candidateId: candidate.id,
+                        candidateId: candidate.candidateId,
+                        applicationId: candidate.applicationId,
                         repoUrl: repoUrl
                     })
                 }
@@ -35,11 +37,11 @@ function JobItem({ job, candidate }) {
 
             if (data.ok) {
                 setSuccess(true)
-                console.log(data);
-                
             }
+
         } catch (error) {
             setError(error.message)
+            
         } finally {
             setLoading(false)
         }
