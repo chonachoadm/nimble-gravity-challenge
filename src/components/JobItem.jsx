@@ -29,6 +29,11 @@ function JobItem({ job, candidate }) {
                     })
                 }
             );
+            console.log(candidate.uuid);
+            console.log(job.id);
+            console.log(candidate.candidateId);
+            console.log(repoUrl);
+            
             if (!response.ok) {
                 throw new Error("Error al enviar la postulación");
             }

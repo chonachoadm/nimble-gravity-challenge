@@ -21,9 +21,11 @@ function App() {
           throw new Error("Error al obtener la información del candidato.")
         }
         const result = await response.json()
+        console.log("Candidate: ", result);
         setCandidate(result)
 
       } catch (error) {
+        console.log(error);
         setError(error.message)
 
       }
@@ -40,9 +42,12 @@ function App() {
           throw new Error("Error al traer las posiciones laborales.")
         }
         const result = await response.json()
+        console.log("Jobs :", result);
+        
         setPositions(result)
 
       } catch (error) {
+        console.log(error);
         setError(error.message)
 
       } finally {
